@@ -6,7 +6,9 @@
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
     </head>
     <body>
-        <input type="file" multiple="multiple" id="upload_field" />
+        <input type="file" multiple="multiple" id="upload_field" /><br />
+        <label for="resize">Изменить размер? </label><input type="checkbox" id="resize" name="resize" onclick="resize()" /><br />
+        <input type="name" maxlength="5" id="size" name="size" style="display:none" />
         <div id="progress_report">
             <div id="progress_report_name"></div>
             <div id="progress_report_status" style="font-style: italic;"></div>
@@ -16,6 +18,10 @@
         </div>
         <div id="result"></div>
         <script type="text/javascript">
+            function resize() {
+                $("#size").toggle();
+            }
+
             function publish(response) {
                 var data = response.split('|');
                 if(data[0]) {
@@ -23,17 +29,19 @@
                         $('#result').append("<img src='"+data[0]+"'><br/>");
                     }
                     else {
-                        $('#result').append("<a href='"+data[1]+"'><img src='"+data[0]+"'></a><br/>");
+                        $('#result').append("<a href='"+data[0]+"'><img src='"+data[1]+"'></a><br/>");
                     }
                 }
             };
 
             $(function() {
                 $("#upload_field").html5_upload({
-                    // url: function(number) {
-                    //     return prompt(number + " url", "/");
-                    // },
-                    url: "upload.php",
+                    url: function() {
+                        var url = "upload.php";
+                        if($("#resize").attr("checked")=="checked") url = "upload.php?resize=" + $("#size").val();
+                        return url;
+                     },
+                    //url: "upload.php",
                     sendBoundary: window.FormData || $.browser.mozilla,
                     onStart: function(event, total) {
                         return true;
