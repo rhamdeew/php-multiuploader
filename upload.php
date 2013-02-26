@@ -83,7 +83,7 @@ if (isset($_FILES)) {
 			echo "http://".$_SERVER["HTTP_HOST"]."/".$dir.$fileName."|http://".$_SERVER["HTTP_HOST"]."/".$dir.$fileName2;
 		}
 		else {
-			echo $dir.$fileName;			
+			echo "http://".$_SERVER["HTTP_HOST"]."/".$dir.$fileName;			
 		}
     }
 }

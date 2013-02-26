@@ -9,10 +9,9 @@
         #result input[type="text"] {
             width:500px;
         }
-    	#all_result {
-            width:700px;	
-            height:250px;
-	    }
+	#all_result {
+            width:500px;	
+	}
         </style>
     </head>
     <body>
@@ -65,10 +64,10 @@
                 var temp = "";
                 if(data[0]) {
                     if(!data[1]) {
-                        t = "<img src='" + data[0] + "'><br/>";
+                        t = "<img src='"+data[0]+"'><br/>";
                     }
                     else {
-                        t = "<a href='" + data[0] + "'><img src='" + data[1] + "'></a><br/>";
+                        t = "<a href='"+data[0]+"'><img src='"+data[1]+"'></a><br/>";
                     }
                     
                     $('#result').append(t);
