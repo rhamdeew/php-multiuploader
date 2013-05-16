@@ -64,7 +64,13 @@ if (isset($_FILES)) {
 			$newheight = $height * $k;
 			// Load
 			$thumb = imagecreatetruecolor($newwidth, $newheight);
-			if($type==3) $source = imagecreatefrompng($fileName);
+			if($type==3) {
+				imagealphablending($thumb, false);
+				imagesavealpha($thumb, true);  
+
+				$source = imagecreatefrompng($fileName);
+				imagealphablending($source, true);
+			}
 			elseif($type==1) $source = imagecreatefromgif($fileName);
 			elseif($type==2) $source = imagecreatefromjpeg($fileName);
 			else {
