@@ -12,8 +12,8 @@ function getpath($uploadDir = "img/") {
 
 //Собственно старт
 
-$uploadDir = 'img/'; //папка для хранения файлов
-$miniuploadDir = 'img/mini/'; //папка для хранения файлов
+$uploadDir = 'img/'; //директория для хранения файлов
+$miniuploadDir = 'img/mini/'; //директория для хранения файлов
 $dir = ''; //базовый путь к скрипту
 $mwidth = 500;
 
