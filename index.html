@@ -6,16 +6,30 @@
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
         <title>PHP MultiUploader</title>
         <style type="text/css">
+        body {
+            background-color: #73d2fb;
+            color: #FFE;
+        }
         #result input[type="text"] {
             width:500px;
         }
+        #upload_field {
+            margin-bottom: 10px;
+        }
     	#all_result {
-            width:700px;	
-            height:250px;
+            width:500px;	
+            height:200px;
 	    }
+        .container {
+            text-align:center;
+            margin:auto;
+            width:50%;
+            min-width:500px;
+        }
         </style>
     </head>
     <body>
+    <div class="container">
         <input type="file" multiple="multiple" id="upload_field" /><br />
         <label for="resize">Change size? </label><input type="checkbox" id="resize" name="resize" onclick="resize()" /><br />
         <input type="name" maxlength="5" id="size" name="size" style="display:none" />
@@ -28,7 +42,8 @@
         </div>
         <div id="result">
 		<p><textarea id="all_result"></textarea></p>
-	</div>
+	    </div>
+    </div>        
         <script type="text/javascript">
             var inid = 0;
 
